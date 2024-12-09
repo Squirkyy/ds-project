@@ -34,6 +34,7 @@ public abstract class Message {
             this.address = address;
             this.port = port;
         }
+        
         /**
          * Constructs a RegisterRequest message from a data input stream.
          * 
@@ -200,6 +201,7 @@ public abstract class Message {
             this.recipient = recipient;
             this.msg = msg;
         }
+        
         /**
          * Constructs a ChatMessage from a data input stream.
          * 
@@ -246,6 +248,7 @@ public abstract class Message {
             return "CHAT_MESSAGE (to " + recipient + ": '" + msg + "')";
         }
     }
+    
     /**
      * Parses a message from a data input stream.
      * 
@@ -257,6 +260,7 @@ public abstract class Message {
     public static Message parse(final DataInputStream in ) throws IOException, ReflectiveOperationException {
         return MessageType.fromInt( in .readInt(), in );
     }
+    
     /**
      * Serializes the message to a data output stream.
      * 
